@@ -30,4 +30,7 @@ Features que ainda restam terminar:
 
 ## Como rodar a aplicação?
 
+- git clone https://github.com/DaniloOliveira01/e-commerce-lifters.git .
+- yarn or npm install
+- yarn dev or npx dev
 
