@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg-primary: #0D0D0D;
-  --bg-secondary: #EFF2F6;
-  --bg-tertiary: #DAE1EA;
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #eff2f6;
+  --bg-tertiary: #dae1ea;
 
   --text-primary: #edf1f4;
   --text-secondary: #f85f19;
-  --text-tertiary: #0D0D0D;
+  --text-tertiary: #0d0d0d;
 }
 
 html,

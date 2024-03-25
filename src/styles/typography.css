@@ -12,7 +12,7 @@
   --step-6: clamp(2.03rem, 1.43rem + 2.96vw, 4.77rem);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
 
 h1,
 h2,
