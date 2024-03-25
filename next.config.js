@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withPWA = require("next-pwa");
+const path = require("path");
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = withPWA({
@@ -9,6 +11,11 @@ module.exports = withPWA({
     disable: !isProd,
   },
   images: {
-    domains: ["ipfs.io", "castles-banner-api.s3.us-east-1.amazonaws.com"],
+    domains: ["images.unsplash.com"],
+  },
+  webpack: (config, { isServer }) => {
+    config.resolve.alias["@"] = path.join(__dirname, "src");
+
+    return config;
   },
 });

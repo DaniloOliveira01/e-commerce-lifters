@@ -17,6 +17,7 @@
     ]
   },
   "dependencies": {
+    "axios": "^1.6.8",
     "next": "12.2.2",
     "next-pwa": "^5.5.4",
     "next-seo": "^5.4.0",
