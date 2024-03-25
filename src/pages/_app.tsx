@@ -7,6 +7,8 @@ import type { AppProps } from "next/app";
 import { ApiProvider } from "@/context/FetchProductContext";
 import { CartProvider } from "@/context/AddProductCartContext";
 import { ProductSelectionProvider } from "@/context/ProductSelectionContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <MainTemplate>
               <Component {...pageProps} />
             </MainTemplate>
+            <ToastContainer autoClose={1500} />
           </ProductSelectionProvider>
         </CartProvider>
       </ApiProvider>

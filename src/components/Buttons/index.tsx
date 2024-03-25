@@ -20,3 +20,11 @@ export const ButtonGray = ({ text, onClick }: IButtonProps) => {
     </button>
   );
 };
+
+export const ButtonWhite = ({ text, onClick }: IButtonProps) => {
+  return (
+    <button onClick={onClick} className="btn-white">
+      {text}
+    </button>
+  );
+};

@@ -24,7 +24,7 @@ const HeaderWeb = () => {
   const [isCart, setIsCart] = useState(false);
 
   return (
-    <header className="bg-primary flex justify-between items-center lg:px-20 px-5 h-[60px] border-b-2 border-zinc-400">
+    <header className="bg-primary flex justify-between items-center lg:px-20 px-5 h-[60px] border-b-2 border-[#707070]">
       <aside className="flex justify-center items-center gap-10">
         <Link href={"/"}>
           <h3 className="text-primary font-bold text-xl cursor-pointer">

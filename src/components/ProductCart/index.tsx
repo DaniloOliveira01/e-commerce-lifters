@@ -5,8 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { toast } from "react-toastify";
 
-import { ButtonBlack } from "../Buttons";
+import { ButtonWhite } from "../Buttons";
 
 interface WindowCartProps {
   setIsCart: Dispatch<SetStateAction<boolean>>;
@@ -21,9 +22,9 @@ export const ProductCart = ({ setIsCart }: WindowCartProps) => {
     const calculateTotalPrice = () => {
       let total = 0;
       cart.forEach(item => {
-        const numericValue = parseFloat(item.valor.replace("$", ""));
-        if (!isNaN(numericValue)) {
-          total += numericValue;
+        const totalValue = parseFloat(item.valor.replace("$", ""));
+        if (!isNaN(totalValue)) {
+          total += totalValue;
         }
       });
       setTotalPrice(total.toFixed(2));
@@ -33,6 +34,8 @@ export const ProductCart = ({ setIsCart }: WindowCartProps) => {
   }, [cart]);
 
   const handleCheckout = () => {
+    if (cart.length < 1) return toast.warn("Your shopping cart is empty!");
+
     router.push({
       pathname: "/checkout",
       query: {
@@ -45,13 +48,13 @@ export const ProductCart = ({ setIsCart }: WindowCartProps) => {
   return (
     <section
       onMouseLeave={() => setIsCart(false)}
-      className="bg-white z-50 absolute w-[350px] px-5 h-[400px] rounded-2xl top-16 right-2 flex flex-col justify-start items-center gap-5 py-10 overflow-y-auto box-shadow"
+      className="bg-primary z-50 absolute w-[350px] px-5 h-[400px] top-16 right-2 flex flex-col justify-start items-center gap-5 py-10 overflow-y-auto box-shadow"
     >
       <span
         onClick={clearCart}
-        className="self-start cursor-pointer text-base text-black hover:underline"
+        className="self-start cursor-pointer text-base text-primary font-medium hover:underline"
       >
-        Clean Cart
+        Clear Cart
       </span>
 
       {cart.length > 0 ? (
@@ -67,9 +70,13 @@ export const ProductCart = ({ setIsCart }: WindowCartProps) => {
       )}
 
       <div className="mt-auto flex flex-col justify-center items-center gap-3">
-        <h2 className="text-xl font-bold text-black">Total: R$ {totalPrice}</h2>
+        <hr className="w-full h-2" />
 
-        <ButtonBlack onClick={handleCheckout} text="Checkout" />
+        <h2 className="text-xl font-bold text-primary">
+          Total: R$ {totalPrice}
+        </h2>
+
+        <ButtonWhite onClick={handleCheckout} text="Checkout" />
       </div>
     </section>
   );
@@ -83,6 +90,7 @@ const ProductCartItem = ({
   removeFromCart: any;
 }) => {
   const handleRemoveFromCart = () => {
+    toast.error(`${item.titulo} removed from cart!`);
     removeFromCart(item.titulo);
   };
 
@@ -90,7 +98,7 @@ const ProductCartItem = ({
     <aside className="flex justify-between items-start gap-5 px-3">
       <div className="flex justify-start items-start gap-3">
         {filterCapaPhoto(item.fotos) && (
-          <figure className="relative overflow-hidden rounded-2xl w-[80px] h-[80px]">
+          <figure className="relative w-[80px] h-[80px]">
             <Image
               src={filterCapaPhoto(item.fotos)?.url || ""}
               layout="fill"
@@ -99,11 +107,11 @@ const ProductCartItem = ({
           </figure>
         )}
 
-        <div className="flex flex-col gap-3">
-          <span className="text-black text-base">{item.titulo}</span>
+        <div className="flex flex-col gap-1">
+          <span className="text-primary text-base">{item.titulo}</span>
 
           <div className="flex justify-start items-center gap-2">
-            <span className="text-black w-[25px] h-[25px] text-sm flex justify-center items-center border-2 border-black">
+            <span className="text-primary w-[25px] h-[25px] text-sm flex justify-center items-center border-2 border-white">
               {item.size}
             </span>
 
@@ -115,14 +123,14 @@ const ProductCartItem = ({
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-3">
-        <span className="text-black text-xl">{item.valor}</span>
+      <div className="flex flex-col justify-center items-center gap-6">
+        <span className="text-primary font-semibold text-xl">{item.valor}</span>
 
         <FaRegTrashAlt
           className="cursor-pointer"
           onClick={handleRemoveFromCart}
           size={25}
-          color="#000"
+          color="#FF0000"
         />
       </div>
     </aside>
@@ -131,8 +139,8 @@ const ProductCartItem = ({
 
 const EmptyCart = () => (
   <article className="flex flex-col justify-center items-center gap-5">
-    <h3 className="text-2xl text-black">Empty Cart</h3>
-    <ButtonBlack text={<Link href={"/"}>Buy Now</Link>} />
+    <h3 className="text-2xl text-primary">Empty Cart</h3>
+    <ButtonWhite text={<Link href={"/"}>Buy Now</Link>} />
   </article>
 );
 

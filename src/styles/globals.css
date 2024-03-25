@@ -50,6 +50,22 @@ body {
   @apply active:scale-90 transition-all;
 }
 
+.btn-white {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  align-items: center;
+  background-color: #fff;
+  color: var(--text-tertiary);
+  padding: 20px 30px 20px 30px;
+  width: 264px;
+  height: 45px;
+  cursor: pointer;
+
+  @apply active:scale-90 transition-all;
+}
+
 .box-shadow {
   -webkit-box-shadow: -3px 7px 13px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -3px 7px 13px -6px rgba(0, 0, 0, 0.75);

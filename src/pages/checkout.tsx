@@ -1,16 +1,17 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 const CheckoutPage: NextPage = () => {
-  // const router = useRouter();
-  // const { totalPrice } = router.query;
+  const router = useRouter();
+  const { totalPrice } = router.query;
 
-  // const getCartFromQuery = (query: any): any[] | null => {
-  //   if (!query.cart) return null;
-  //   const productCart = Array.isArray(query.cart) ? query.cart[0] : query.cart;
-  //   return JSON.parse(productCart) as any[];
-  // };
+  const getCartFromQuery = (query: any): any[] | null => {
+    if (!query.cart) return null;
+    const productCart = Array.isArray(query.cart) ? query.cart[0] : query.cart;
+    return JSON.parse(productCart) as any[];
+  };
 
-  // const productCart = getCartFromQuery(router.query);
+  const productCart = getCartFromQuery(router.query);
 
   return (
     <main className="flex justify-center items-center ">

@@ -5,6 +5,7 @@ import { useProductSelection } from "@/context/ProductSelectionContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 interface ProductImageProps {
   url: string;
@@ -85,8 +86,12 @@ export const InfoProducts: React.FC = () => {
   } = useProductSelection();
 
   const handleAddToCart = () => {
-    if (!product || !selectedColor || !selectedSize) return;
+    if (!product || !selectedColor || !selectedSize)
+      return toast.warn(
+        "Choose the color and size of the product before adding to cart!",
+      );
 
+    toast.success("Product added to cart!");
     const cartItem: CartItem = {
       ...product,
       color: selectedColor,
