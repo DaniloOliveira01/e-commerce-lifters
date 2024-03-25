@@ -16,11 +16,11 @@
 
 .dark,
 [data-theme="dark"] {
-  --bg-primary: #131416;
-  --bg-secondary: #1c1c1c;
+  --bg-primary: #edf1f4;
+  --bg-secondary: #edf1f4;
 
   --text-primary: #bebebe;
-  --text-secondary: #dedede;
+  --text-secondary: #f85f19;
 }
 
 html,
