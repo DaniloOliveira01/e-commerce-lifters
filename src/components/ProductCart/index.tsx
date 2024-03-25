@@ -116,6 +116,8 @@ const ProductCartItem = ({
       </div>
 
       <div className="flex flex-col justify-center items-center gap-3">
+        <span className="text-black text-xl">{item.valor}</span>
+
         <FaRegTrashAlt onClick={handleRemoveFromCart} size={25} color="#000" />
       </div>
     </aside>
