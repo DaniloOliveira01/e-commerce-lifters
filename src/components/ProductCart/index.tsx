@@ -45,7 +45,7 @@ export const ProductCart = ({ setIsCart }: WindowCartProps) => {
   return (
     <section
       onMouseLeave={() => setIsCart(false)}
-      className="bg-white absolute w-[350px] px-5 h-[600px] rounded-2xl top-16 right-2 flex flex-col justify-start items-center gap-5 py-10"
+      className="bg-white z-50 absolute w-[350px] px-5 h-[600px] rounded-2xl top-16 right-2 flex flex-col justify-start items-center gap-5 py-10"
     >
       <span
         onClick={clearCart}
