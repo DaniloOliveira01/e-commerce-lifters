@@ -1,47 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* UI & surface colors */
-
-  --bg-primary: #04151c;
-  --bg-secondary: #edf1f4;
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #EFF2F6;
+  --bg-tertiary: #DAE1EA;
 
   --text-primary: #edf1f4;
   --text-secondary: #f85f19;
-
-  /* Brand colors */
-}
-
-.dark,
-[data-theme="dark"] {
-  --bg-primary: #04151c;
-  --bg-secondary: #edf1f4;
-
-  --text-primary: #bebebe;
-  --text-secondary: #f85f19;
+  --text-tertiary: #0D0D0D;
 }
 
 html,
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
   @apply bg-secondary text-primary overflow-x-hidden;
 }
 
-.btn-orange {
+.btn-black {
   display: flex;
   justify-content: center;
   font-size: 16px;
-  font-weight: 800;
   align-items: center;
-  background-color: #f85f19;
-  color: #000;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 20px 30px 20px 30px;
-  width: 200px;
+  width: 264px;
   height: 45px;
-  border-radius: 16px;
   cursor: pointer;
 
   @apply active:scale-90 transition-all;
+}
+
+.btn-gray {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  align-items: center;
+  background-color: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  padding: 20px 30px 20px 30px;
+  width: 140px;
+  height: 45px;
+  cursor: pointer;
+
+  @apply active:scale-90 transition-all;
+}
+
+.box-shadow {
+  -webkit-box-shadow: -3px 7px 13px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -3px 7px 13px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: -3px 7px 13px -6px rgba(0, 0, 0, 0.75);
 }

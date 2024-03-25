@@ -5,9 +5,17 @@ interface IButtonProps {
   onClick?: () => void;
 }
 
-export const ButtonOrange = ({ text, onClick }: IButtonProps) => {
+export const ButtonBlack = ({ text, onClick }: IButtonProps) => {
   return (
-    <button onClick={onClick} className="btn-orange">
+    <button onClick={onClick} className="btn-black">
+      {text}
+    </button>
+  );
+};
+
+export const ButtonGray = ({ text, onClick }: IButtonProps) => {
+  return (
+    <button onClick={onClick} className="btn-gray">
       {text}
     </button>
   );

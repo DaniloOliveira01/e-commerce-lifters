@@ -1,23 +1,22 @@
 import { Photo } from "@/@types";
 import { useApi } from "@/context/FetchProductContext";
-import { truncateText } from "@/utils/TruncateText";
 import Image from "next/image";
 import Link from "next/link";
 
-import { ButtonOrange } from "../Buttons";
+import { ButtonBlack } from "../Buttons";
 
 export const ProductsCards: React.FC = () => {
   const { produtos } = useApi();
 
   return (
-    <section className="pt-20 flex-wrap flex justify-center items-center gap-10">
+    <section className="pt-20 flex-wrap flex justify-start items-center gap-10">
       {produtos.map((item, index) => (
         <aside
           key={index}
-          className="bg-slate-50 rounded-2xl w-[250px] py-5 flex flex-col justify-start items-center gap-2"
+          className="w-[264px] flex flex-col justify-start items-start gap-2"
         >
           {filterCapaPhoto(item.fotos) && (
-            <figure className="relative overflow-hidden rounded-2xl w-[200px] h-[200px]">
+            <figure className="relative w-[264px] h-[264px]">
               <Image
                 src={filterCapaPhoto(item.fotos)?.url || ""}
                 layout="fill"
@@ -26,17 +25,24 @@ export const ProductsCards: React.FC = () => {
             </figure>
           )}
 
-          <h3 className="text-secondary text-lg font-bold">{item.titulo}</h3>
+          <div className="flex justify-start items-start flex-wrap gap-3">
+            {item.tamanhos.map((item, index) => (
+              <span
+                className="text-sm text-black border-[1px] border-black w-[30px] h-[30px] flex justify-center items-center"
+                key={index}
+              >
+                {item}
+              </span>
+            ))}
+          </div>
 
-          <span className="text-black font-medium text-center text-sm px-3">
-            {truncateText(item.descricao, 50)}
-          </span>
+          <div className="flex justify-between gap-16">
+            <h3 className="text-lg text-black">{item.titulo}</h3>
 
-          <span className="text-secondary text-lg font-bold">
-            Price: {item.valor}
-          </span>
+            <span className="text-lg text-black font-bold">{"M"}</span>
+          </div>
 
-          <ButtonOrange
+          <ButtonBlack
             text={
               <Link
                 href={{

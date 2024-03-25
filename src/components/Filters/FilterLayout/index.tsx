@@ -26,23 +26,52 @@ export const CategoriesFilters = () => {
 
   return (
     <section className="flex flex-col justify-center items-start gap-5">
-      <span className="text-xl font-bold text-black">Categoria:</span>
+      <span className="text-base font-bold text-black">Categories</span>
 
       <article className="flex flex-col justify-center items-start gap-5">
         {produtos?.map((item, index) => (
           <div key={index} className="flex justify-center items-center gap-5">
             <input
+              className="w-[20px] h-[20px] bg-secondary"
               type="checkbox"
               checked={checkboxState[item.categoria] || false}
               onChange={() => handleCheckboxChange(item.categoria)}
             />{" "}
-            -{" "}
-            <span className="text-black text-lg font-bold">
-              {item.categoria}
-            </span>
+            <span className="text-black text-base">{item.categoria}</span>
           </div>
         ))}
       </article>
+    </section>
+  );
+};
+
+export const ColorFilters = () => {
+  const CircleColor = [
+    { code: "#DF9167" },
+    { code: "#7B61FF" },
+    { code: "#219653" },
+    { code: "#2F80ED" },
+    { code: "#EB5757" },
+    { code: "#56CCF2" },
+    { code: "#4F4F4F" },
+    { code: "#BB6BD9" },
+    { code: "#F2F2F2" },
+    { code: "#6FCF97" },
+  ];
+
+  return (
+    <section className="flex flex-col justify-start items-start gap-5">
+      <span className="text-base font-bold text-black">Color</span>
+
+      <div className="flex justify-start items-center flex-wrap gap-3">
+        {CircleColor.map(item => (
+          <div
+            key={item.code}
+            className="w-[25px] h-[25px] border-2 border-black rounded-full"
+            style={{ background: item.code }}
+          />
+        ))}
+      </div>
     </section>
   );
 };

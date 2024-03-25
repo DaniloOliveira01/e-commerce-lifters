@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-import { ButtonOrange } from "../Buttons";
+import { ButtonBlack } from "../Buttons";
 
 interface WindowCartProps {
   setIsCart: Dispatch<SetStateAction<boolean>>;
@@ -45,13 +45,13 @@ export const ProductCart = ({ setIsCart }: WindowCartProps) => {
   return (
     <section
       onMouseLeave={() => setIsCart(false)}
-      className="bg-white z-50 absolute w-[350px] px-5 h-[600px] rounded-2xl top-16 right-2 flex flex-col justify-start items-center gap-5 py-10"
+      className="bg-white z-50 absolute w-[350px] px-5 h-[400px] rounded-2xl top-16 right-2 flex flex-col justify-start items-center gap-5 py-10 overflow-y-auto box-shadow"
     >
       <span
         onClick={clearCart}
-        className="self-start cursor-pointer text-base text-black hover:underline hover:text-secondary"
+        className="self-start cursor-pointer text-base text-black hover:underline"
       >
-        Limpar tudo
+        Clean Cart
       </span>
 
       {cart.length > 0 ? (
@@ -69,7 +69,7 @@ export const ProductCart = ({ setIsCart }: WindowCartProps) => {
       <div className="mt-auto flex flex-col justify-center items-center gap-3">
         <h2 className="text-xl font-bold text-black">Total: R$ {totalPrice}</h2>
 
-        <ButtonOrange onClick={handleCheckout} text="Checkout" />
+        <ButtonBlack onClick={handleCheckout} text="Checkout" />
       </div>
     </section>
   );
@@ -100,15 +100,15 @@ const ProductCartItem = ({
         )}
 
         <div className="flex flex-col gap-3">
-          <span className="text-black">{item.titulo}</span>
+          <span className="text-black text-base">{item.titulo}</span>
 
           <div className="flex justify-start items-center gap-2">
-            <span className="text-black w-[30px] h-[30px] text-sm flex justify-center items-center border-2 border-black">
+            <span className="text-black w-[25px] h-[25px] text-sm flex justify-center items-center border-2 border-black">
               {item.size}
             </span>
 
             <div
-              className={`w-[20px] h-[20px] rounded-full`}
+              className={`w-[25px] h-[25px] rounded-full`}
               style={{ backgroundColor: item.color }}
             />
           </div>
@@ -118,16 +118,21 @@ const ProductCartItem = ({
       <div className="flex flex-col justify-center items-center gap-3">
         <span className="text-black text-xl">{item.valor}</span>
 
-        <FaRegTrashAlt onClick={handleRemoveFromCart} size={25} color="#000" />
+        <FaRegTrashAlt
+          className="cursor-pointer"
+          onClick={handleRemoveFromCart}
+          size={25}
+          color="#000"
+        />
       </div>
     </aside>
   );
 };
 
 const EmptyCart = () => (
-  <article className="flex flex-col justify-center items-center">
-    <h3 className="text-2xl text-black">Carrinho vazio!</h3>
-    <ButtonOrange text={<Link href={"/"}>Buy Now</Link>} />
+  <article className="flex flex-col justify-center items-center gap-5">
+    <h3 className="text-2xl text-black">Empty Cart</h3>
+    <ButtonBlack text={<Link href={"/"}>Buy Now</Link>} />
   </article>
 );
 

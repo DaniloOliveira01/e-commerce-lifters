@@ -37,7 +37,7 @@ export const ApiProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [produtos, setProdutos] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [filtroCategoria, setFiltroCategoria] = useState<string[] | null>(null); // Alterado para aceitar array de strings
+  const [filtroCategoria, setFiltroCategoria] = useState<string[] | null>(null);
   const [filtroCor, setFiltroCor] = useState<Color | null>(null);
   const [filtroSearch, setFiltroSearch] = useState<string | null>(null);
 

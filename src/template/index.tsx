@@ -1,4 +1,4 @@
-import HeaderWeb from "@/components/Headers/HeaderWeb";
+import HeaderWeb from "@/components/Headers";
 import { Fragment, ReactNode } from "react";
 
 interface IMainTemplateProps {

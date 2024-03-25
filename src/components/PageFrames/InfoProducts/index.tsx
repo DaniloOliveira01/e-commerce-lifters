@@ -1,5 +1,5 @@
 import { Product } from "@/@types";
-import { ButtonOrange } from "@/components/Buttons";
+import { ButtonBlack, ButtonGray } from "@/components/Buttons";
 import { useCart } from "@/context/AddProductCartContext";
 import { useProductSelection } from "@/context/ProductSelectionContext";
 import Image from "next/image";
@@ -28,7 +28,7 @@ interface CartItem extends Product {
 }
 
 const ProductImage: React.FC<ProductImageProps> = ({ url }) => (
-  <figure className="relative w-[300px] h-[300px]">
+  <figure className="relative w-[260px] h-[260px]">
     <Image src={url} objectFit="contain" layout="fill" />
   </figure>
 );
@@ -97,7 +97,7 @@ export const InfoProducts: React.FC = () => {
   };
 
   return (
-    <section className="flex lg:flex-row flex-col-reverse justify-center items-center lg:justify-start lg:items-start gap-5 h-full pt-10 lg:pt-44">
+    <section className="flex lg:flex-row flex-col-reverse justify-center items-center lg:justify-start lg:items-start gap-5 h-full pt-10 lg:pt-24">
       <aside className="max-w-[900px] flex justify-center items-center flex-wrap gap-3">
         {product?.fotos.map((item, index) => (
           <ProductImage key={index} url={item.url} />
@@ -106,12 +106,12 @@ export const InfoProducts: React.FC = () => {
 
       <article className="flex flex-col justify-center items-center lg:justify-start lg:items-start gap-5">
         <h3 className="lg:text-4xl text-3xl text-black">{product?.titulo}</h3>
-        <span className="lg:w-auto w-[350px] text-black font-semibold lg:text-left text-center">
+        <span className="lg:w-auto w-[350px] text-lg text-black lg:text-left text-center">
           {product?.descricao}
         </span>
 
         <span className="text-black font-semibold lg:text-left text-center">
-          Cor:
+          Color
         </span>
         <aside className="flex justify-center gap-5">
           {product?.cores.map((item, index) => (
@@ -125,7 +125,7 @@ export const InfoProducts: React.FC = () => {
         </aside>
 
         <span className="text-black font-semibold lg:text-left text-center">
-          Tamanho:
+          Size
         </span>
         <aside className="flex flex-wrap justify-center gap-3">
           {product?.tamanhos.map((size, index) => (
@@ -138,8 +138,10 @@ export const InfoProducts: React.FC = () => {
           ))}
         </aside>
 
-        <ButtonOrange onClick={handleAddToCart} text={"Add to Bag"} />
-        <ButtonOrange text={<Link href={"/"}>Back</Link>} />
+        <div className="flex justify-center items-center gap-3">
+          <ButtonBlack onClick={handleAddToCart} text={"Add to Bag"} />
+          <ButtonGray text={<Link href={"/"}>Back</Link>} />
+        </div>
       </article>
     </section>
   );

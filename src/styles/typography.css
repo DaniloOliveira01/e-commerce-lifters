@@ -12,7 +12,7 @@
   --step-6: clamp(2.03rem, 1.43rem + 2.96vw, 4.77rem);
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
 h1,
 h2,
@@ -26,50 +26,50 @@ h4 {
 h1 {
   margin-top: 0;
   font-size: var(--step-6);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 h2 {
   font-size: var(--step-5);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 h3 {
   font-size: var(--step-4);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 h4 {
   font-size: var(--step-3);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 span {
   font-size: var(--step-0);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 p {
   font-size: var(--step-0);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 a {
   font-size: var(--step-0);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 .tiny {
   font-size: var(--step--2);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 small {
   font-size: var(--step--1);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
 
 .text-margin {
   margin: 3rem 0 1.38rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter Tight", sans-serif;
 }
