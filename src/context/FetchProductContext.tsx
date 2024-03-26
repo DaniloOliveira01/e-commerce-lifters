@@ -13,23 +13,23 @@ import React, {
 interface ApiContextType {
   produtos: Product[];
   loading: boolean;
-  filtroCategoria: string[] | null;
-  filtroCor: Color | null;
-  filtroSearch: string | null;
-  setFiltroCategoria: Dispatch<SetStateAction<string[] | null>>;
-  setFiltroCor: Dispatch<SetStateAction<Color | null>>;
-  setFiltroSearch: Dispatch<SetStateAction<string | null>>;
+  filterCategorie: string[] | null;
+  filterColor: Color | null;
+  filterSearch: string | null;
+  setFilterCategorie: Dispatch<SetStateAction<string[] | null>>;
+  setFilterColor: Dispatch<SetStateAction<Color | null>>;
+  setFilterSearch: Dispatch<SetStateAction<string | null>>;
 }
 
 const ApiContext = createContext<ApiContextType>({
   produtos: [],
   loading: true,
-  filtroCategoria: null,
-  filtroCor: null,
-  filtroSearch: null,
-  setFiltroCategoria: () => [],
-  setFiltroCor: () => [],
-  setFiltroSearch: () => [],
+  filterCategorie: null,
+  filterColor: null,
+  filterSearch: null,
+  setFilterCategorie: () => [],
+  setFilterColor: () => [],
+  setFilterSearch: () => [],
 });
 
 export const ApiProvider: React.FC<{ children: ReactNode }> = ({
@@ -37,9 +37,9 @@ export const ApiProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [produtos, setProdutos] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [filtroCategoria, setFiltroCategoria] = useState<string[] | null>(null);
-  const [filtroCor, setFiltroCor] = useState<Color | null>(null);
-  const [filtroSearch, setFiltroSearch] = useState<string | null>(null);
+  const [filterCategorie, setFilterCategorie] = useState<string[] | null>(null);
+  const [filterColor, setFilterColor] = useState<Color | null>(null);
+  const [filterSearch, setFilterSearch] = useState<string | null>(null);
 
   const fetchData = async () => {
     try {
@@ -58,17 +58,13 @@ export const ApiProvider: React.FC<{ children: ReactNode }> = ({
   }, []);
 
   const produtosFiltrados = produtos?.filter(produto => {
-    if (filtroCategoria && !filtroCategoria.includes(produto.categoria)) {
-      return false;
-    }
-
-    if (filtroCor && !produto.cores.includes(filtroCor)) {
+    if (filterCategorie && !filterCategorie.includes(produto.categoria)) {
       return false;
     }
 
     if (
-      filtroSearch &&
-      !produto.titulo.toLowerCase().includes(filtroSearch.toLowerCase())
+      filterSearch &&
+      !produto.titulo.toLowerCase().includes(filterSearch.toLowerCase())
     ) {
       return false;
     }
@@ -81,12 +77,12 @@ export const ApiProvider: React.FC<{ children: ReactNode }> = ({
       value={{
         produtos: produtosFiltrados,
         loading,
-        filtroCategoria,
-        filtroCor,
-        filtroSearch,
-        setFiltroCategoria,
-        setFiltroCor,
-        setFiltroSearch,
+        filterCategorie,
+        filterColor,
+        filterSearch,
+        setFilterCategorie,
+        setFilterColor,
+        setFilterSearch,
       }}
     >
       {children}

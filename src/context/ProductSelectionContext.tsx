@@ -11,16 +11,6 @@ interface ProductSelectionContextType {
 const ProductSelectionContext =
   createContext<ProductSelectionContextType | null>(null);
 
-export const useProductSelection = () => {
-  const context = useContext(ProductSelectionContext);
-  if (!context) {
-    throw new Error(
-      "useProductSelection must be used within a ProductSelectionProvider",
-    );
-  }
-  return context;
-};
-
 export const ProductSelectionProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
@@ -53,4 +43,14 @@ export const ProductSelectionProvider: React.FC<{ children: ReactNode }> = ({
       {children}
     </ProductSelectionContext.Provider>
   );
+};
+
+export const useProductSelection = () => {
+  const context = useContext(ProductSelectionContext);
+  if (!context) {
+    throw new Error(
+      "Add the ProductSelectProvider to the application's parent component",
+    );
+  }
+  return context;
 };

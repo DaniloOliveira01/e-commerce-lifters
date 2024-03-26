@@ -1,4 +1,4 @@
-import { HomePageFrame } from "@/components/PageFrames/Home";
+import { HomePageFrame } from "@/components/Layouts/Home";
 import { Meta } from "@/layout/Meta";
 import type { NextPage } from "next";
 import { Fragment } from "react";

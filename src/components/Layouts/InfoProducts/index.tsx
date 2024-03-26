@@ -102,16 +102,16 @@ export const InfoProducts: React.FC = () => {
   };
 
   return (
-    <section className="flex lg:flex-row flex-col-reverse justify-center items-center lg:justify-start lg:items-start gap-5 h-full pt-10 lg:pt-24">
-      <aside className="max-w-[900px] flex justify-center items-center flex-wrap gap-3">
+    <section className="flex lg:flex-row flex-col-reverse justify-center items-center gap-5 h-full pt-10 lg:pt-24">
+      <aside className="max-w-[900px] grid grid-cols-2 justify-center items-center gap-3">
         {product?.fotos.map((item, index) => (
           <ProductImage key={index} url={item.url} />
         ))}
       </aside>
 
-      <article className="flex flex-col justify-center items-center lg:justify-start lg:items-start gap-5">
+      <article className="flex flex-col justify-center items-center lg:justify-start lg:items-start gap-5 p-5">
         <h3 className="lg:text-4xl text-3xl text-black">{product?.titulo}</h3>
-        <span className="lg:w-auto w-[350px] text-lg text-black lg:text-left text-center">
+        <span className="lg:w-[600px] w-[350px] text-lg text-black lg:text-left text-center">
           {product?.descricao}
         </span>
 

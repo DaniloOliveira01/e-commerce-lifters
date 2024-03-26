@@ -17,3 +17,11 @@ export interface Product {
   tamanhos: string[];
   fotos: Photo[];
 }
+
+export interface CartItem {
+  titulo: string;
+  valor: string;
+  descricao: string;
+  color: string;
+  size: string;
+}
